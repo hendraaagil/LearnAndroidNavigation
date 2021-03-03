@@ -7,25 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    private Button btnOpenOther;
+public class OtherActivity extends AppCompatActivity {
+    private Button btnOpenMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_other);
 
-        btnOpenOther = findViewById(R.id.btnOpenOther);
-        btnOpenOther.setOnClickListener(new View.OnClickListener() {
+        btnOpenMain = findViewById(R.id.btnOpenMain);
+        btnOpenMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openOtherActivity();
+                openMainActivity();
             }
         });
     }
 
-    private void openOtherActivity() {
-        Intent intent = new Intent(this, OtherActivity.class);
+    private void openMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

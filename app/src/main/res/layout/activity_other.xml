@@ -6,21 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".OtherActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
-        android:text="Main Activity" />
+        android:text="Other Activity" />
 
     <Button
-        android:id="@+id/btnOpenOther"
+        android:id="@+id/btnOpenMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textAllCaps="false"
-        android:text="Open Other Activity" />
+        android:text="Open Main Activity" />
 
 </LinearLayout>
