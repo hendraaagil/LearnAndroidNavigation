@@ -1,43 +1,50 @@
 package com.example.learnandroidnavigation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.MenuItem;
+
+import com.example.learnandroidnavigation.fragments.FavoritesFragment;
+import com.example.learnandroidnavigation.fragments.HomeFragment;
+import com.example.learnandroidnavigation.fragments.SearchFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnOpenOther, btnOpenTabbed;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnOpenOther = findViewById(R.id.btnOpenOther);
-        btnOpenOther.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openOtherActivity();
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment selectedFragment = null;
+
+            switch (item.getItemId()) {
+                case R.id.nav_home:
+                    selectedFragment = new HomeFragment();
+                    break;
+                case R.id.nav_favorites:
+                    selectedFragment = new FavoritesFragment();
+                    break;
+                case R.id.nav_search:
+                    selectedFragment = new SearchFragment();
+                    break;
+                default:
             }
-        });
 
-        btnOpenTabbed = findViewById(R.id.btnOpenTabbed);
-        btnOpenTabbed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTabbedActivity();
-            }
-        });
-    }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
 
-    private void openTabbedActivity() {
-        startActivity(new Intent(this, TabbedActivity.class));
-    }
-
-    private void openOtherActivity() {
-        Intent intent = new Intent(this, OtherActivity.class);
-        startActivity(intent);
-    }
+            return true;
+        }
+    };
 }
