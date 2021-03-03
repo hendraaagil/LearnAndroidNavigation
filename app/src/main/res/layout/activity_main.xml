@@ -20,7 +20,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
         android:textAllCaps="false"
         android:text="Open Other Activity" />
+
+    <Button
+        android:id="@+id/btnOpenTabbed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAllCaps="false"
+        android:text="Open Tabbed Activity" />
 
 </LinearLayout>

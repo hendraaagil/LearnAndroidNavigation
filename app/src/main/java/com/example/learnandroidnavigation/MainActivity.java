@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btnOpenOther;
+    private Button btnOpenOther, btnOpenTabbed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,18 @@ public class MainActivity extends AppCompatActivity {
                 openOtherActivity();
             }
         });
+
+        btnOpenTabbed = findViewById(R.id.btnOpenTabbed);
+        btnOpenTabbed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTabbedActivity();
+            }
+        });
+    }
+
+    private void openTabbedActivity() {
+        startActivity(new Intent(this, TabbedActivity.class));
     }
 
     private void openOtherActivity() {
