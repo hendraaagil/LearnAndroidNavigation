@@ -15,12 +15,4 @@
         android:layout_marginBottom="16dp"
         android:text="Other Activity" />
 
-    <Button
-        android:id="@+id/btnOpenMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAllCaps="false"
-        android:text="Open Main Activity" />
-
 </LinearLayout>
